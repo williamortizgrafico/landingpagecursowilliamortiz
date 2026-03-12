@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Bitácora artesanal para técnicas mixtas - Explora, pinta, raya y colorea sin límites">
+    <meta name="keywords" content="bitácora, técnicas mixtas, arte, diseño, independiente">
+    <meta name="author" content="Marca Diseño Independiente">
+    <title>Bitácora Técnicas Mixtas | Marca Diseño Independiente</title>
+    <style>
+        /* ============================================================
+           VARIABLES GLOBALES Y RESET
+           ============================================================ */
+        :root {
+            --color-primary: #4B9BA8;
+            --color-secondary: #5DABB8;
+            --color-accent: #2D7A87;
+            --color-light: #F8F7F6;
+            --color-dark: #2C2C2C;
+            --color-text: #3D3D3D;
+            --color-gray-light: #E8E7E6;
+            --font-serif: 'Georgia', 'Garamond', serif;
+            --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* ============================================================
+           HEADER / NAVEGACIÓN
+           ============================================================ */
+        header {
+            background-color: #fff;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            max-width: 200px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-secondary);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+
+        /* ============================================================
+           HERO SECTION
+           ============================================================ */
+        .hero {
+            background: linear-gradient(135deg, #F8F7F6 0%, #FAFAF9 100%);
+            padding: 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--color-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(45deg, #5DABB8, #4B9BA8);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img,
+        .hero-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* ============================================================
+           BOTONES
+           ============================================================ */
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(75, 155, 168, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        /* ============================================================
+           SECCIÓN INTRODUCCIÓN
+           ============================================================ */
+        .intro-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .intro-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .intro-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            border-radius: 2px;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .intro-card {
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .intro-card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #F8F7F6 0%, #FAFAF9 100%);
+        }
+
+        .intro-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-card:hover .intro-card-image img {
+            transform: scale(1.05);
+        }
+
+        .intro-card-content {
+            padding: 1.5rem;
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        .intro-card h3 {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+
+        .intro-card p {
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           GALERÍA DE PRODUCTOS
+           ============================================================ */
+        .gallery-section {
+            background: linear-gradient(135deg, #F8F7F6 0%, #FAFAF9 100%);
+            padding: 5rem 2rem;
+            margin: 5rem 0;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .gallery-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            border-radius: 2px;
+        }
+
+        .gallery-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            background: #fff;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(75, 155, 168, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-description {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-description h3 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+
+        .gallery-description p {
+            color: var(--color-text);
+            line-height: 1.8;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* ============================================================
+           SECCIÓN DE BENEFICIOS
+           ============================================================ */
+        .benefits-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .benefits-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .benefits-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            border-radius: 2px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .benefit-icon {
+            height: 120px;
+            width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 4px 12px rgba(75, 155, 168, 0.2);
+        }
+
+        .benefit-card h3 {
+            color: var(--color-primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+
+        .benefit-card p {
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           CTA FINAL
+           ============================================================ */
+        .cta-final {
+            background-image: url('imagenes/BitacoraMixta.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 5rem 0 0 0;
+            color: white;
+            position: relative;
+        }
+
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 43, 43, 0.7);
+            z-index: 1;
+        }
+
+        .cta-final-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-final h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-final .btn {
+            background-color: white;
+            color: var(--color-primary);
+            margin: 0 0.75rem;
+        }
+
+        .cta-final .btn:hover {
+            background-color: var(--color-light);
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        footer {
+            background-color: var(--color-dark);
+            color: #ccc;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        footer p {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* ============================================================
+           MEDIA QUERIES - RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                height: 40px;
+                max-width: 150px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-image {
+                height: 350px;
+            }
+
+            .intro-section,
+            .benefits-section,
+            .gallery-section {
+                padding: 2rem 1rem;
+            }
+
+            .intro-section h2,
+            .gallery-section h2,
+            .benefits-section h2,
+            .cta-final h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .cta-final .btn {
+                display: block;
+                margin: 0.5rem auto;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                height: 35px;
+                max-width: 120px;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
+
+            .intro-section,
+            .benefits-section {
+                margin: 3rem auto;
+            }
+
+            .intro-grid {
+                gap: 1.5rem;
+            }
+
+            .intro-card-content {
+                padding: 1.5rem;
+            }
+
+            .benefit-card {
+                padding: 1.5rem;
+            }
+
+            .cta-final {
+                padding: 2.5rem 1rem;
+            }
+
+            .cta-final h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-final p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ============================================================
+           ANIMACIONES
+           ============================================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-card,
+        .benefit-card,
+        .gallery-item {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .intro-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .intro-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .intro-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .intro-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .intro-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .intro-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="https://srbuho.com/wp-content/uploads/2023/12/LOGO.png" alt="Sr. Búho Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Bitácora para Técnicas Mixtas</h1>
+                <p class="subtitle">Explora, Pinta, Raya y Colorea</p>
+                <p>
+                    Diseñada para artistas que desean romper límites y crear sin restricciones. Esta bitácora es el
+                    lienzo perfecto para combinar acuarela, tinta, grafito y más en una sola obra maestra.
+                </p>
+                <p>
+                    Cada página invita a la experimentación, a mezclar técnicas y a descubrir tu propio estilo
+                    artístico.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://srbuho.com/?product=mix-herramientas-18x16" class="btn btn-primary">Comprar
+                        Ahora</a>
+                    <a href="https://www.instagram.com/p/CiMFRTHOSln/?img_index=1" target="_blank"
+                        class="btn btn-secondary">Ver en
+                        Instagram</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <video src="imagenes/Video.mp4" autoplay loop muted playsinline controls
+                    aria-label="Bitácora de Técnicas Mixtas"></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE INTRODUCCIÓN -->
+    <section class="intro-section">
+        <h2>Versatilidad en una sola bitácora
+
+        </h2>
+        <div class="intro-grid">
+            <div class="intro-card">
+                <div class="intro-card-image">
+                    <img src="imagenes/Acuarela.jpg" alt="Acuarela">
+                </div>
+                <div class="intro-card-content">
+                    <h3>🎨 Acuarela</h3>
+                    <p>Crea efectos translúcidos y fluidos que dan vida a tus composiciones con transparencia y
+                        suavidad.</p>
+                </div>
+            </div>
+            <div class="intro-card">
+                <div class="intro-card-image">
+                    <img src="imagenes/Grafito.jpg" alt="Grafito">
+                </div>
+                <div class="intro-card-content">
+                    <h3>✏️ Grafito</h3>
+                    <p>Dibuja líneas precisas y sombreados detallados con la flexibilidad que solo el grafito puede
+                        ofrecer.</p>
+                </div>
+            </div>
+            <div class="intro-card">
+                <div class="intro-card-image">
+                    <img src="imagenes/Tinta.jpg" alt="Tinta">
+                </div>
+                <div class="intro-card-content">
+                    <h3>🖊️ Tinta</h3>
+                    <p>Define contornos nítidos y crea contrastes dramáticos que complementan otros medios
+                        perfectamente.</p>
+                </div>
+            </div>
+            <div class="intro-card">
+                <div class="intro-card-image">
+                    <img src="imagenes/LapicesDeColor.jpg" alt="Lapices de color">
+                </div>
+                <div class="intro-card-content">
+                    <h3>🖍️ Lápices de color</h3>
+                    <p>Desde lápices de color hasta pasteles, mezcla tonalidades y crea texturas fascinantes en cada
+                        página.</p>
+                </div>
+            </div>
+            <div class="intro-card">
+                <div class="intro-card-image">
+                    <img src="imagenes/Papeles.jpg" alt="Papeles Especiales">
+                </div>
+                <div class="intro-card-content">
+                    <h3>✨ Papeles Especiales</h3>
+                    <p>Nuestro papel acepta todos diferentes pigmentos para para que empieces a crear sin límites.</p>
+                </div>
+            </div>
+            <div class="intro-card">
+                <div class="intro-card-image">
+                    <img src="imagenes/Gouache.jpg" alt="Sin Límites">
+                </div>
+                <div class="intro-card-content">
+                    <h3>💭 Gouache</h3>
+                    <p>Crea sin pensar en limitaciones. Cada página es una invitación a experimentar y crecer como
+                        artista.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA CARACTERÍSTICAS BITÁCORA MIXTA  -->
+    <section class="gallery-section" id="galeria">
+        <div class="gallery-container">
+            <h2>Características de la Bitácora Mixta</h2>
+            <div class="gallery-wrapper">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="imagenes/PapelResistente.jpg" alt="Papel Resistente">
+                        <div class="gallery-item-overlay">Papel Resistente</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagenes/CosturaFrancesa.jpg" alt="Cosido a Mano">
+                        <div class="gallery-item-overlay">Cosido a Mano</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagenes/DisenoOriginal.jpg" alt="Diseño Original">
+                        <div class="gallery-item-overlay">Diseño Original</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagenes/CierreCaucho.jpg" alt="Cierre de Caucho">
+                        <div class="gallery-item-overlay">Cierre de Caucho</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagenes/DiversidadPapel.jpg" alt="Diversidad de Papeles">
+                        <div class="gallery-item-overlay">Diversidad de Papeles</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagenes/Portabilidad.jpg" alt="Portabilidad">
+                        <div class="gallery-item-overlay">Portabilidad</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagenes/Versatilidad.jpg" alt="Versatilidad">
+                        <div class="gallery-item-overlay">Versatilidad</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagenes/Durabilidad.png" alt="Durabilidad">
+                        <div class="gallery-item-overlay">Durabilidad</div>
+                    </div>
+                </div>
+
+                <div class="gallery-description">
+                    <h3>Bitácora de Técnicas Mixtas: Tu Lienzo Perfecto</h3>
+                    <p>
+                        Nuestra bitácora para técnicas mixtas es el resultadola práctica y la necesidad de probar
+                        diferentes técnidas en un mismo espacio. Cada ejemplar es elaborado artesanalmente con
+                        materiales duraderos y adecuados para cada técnica,
+                        seleccionados cuidadosamente para garantizar que tu creatividad no tenga límites. Los papeles
+                        que utilizamos han sido probados con acuarelas, tintas, lápices de color, grafito y más,
+                        ofreciendo una experiencia incomparable. Las páginas están cosidas a mano, asegurando
+                        durabilidad y un acabado profesional que refleja el valor de tu trabajo artístico. Diseñadas
+                        para artistas principiantes y amateurs que buscan romper barreras y crear sin restricciones,
+                        estas bitácoras son
+                        compañeras ideales en tu camino artístico. Cada portada tiene ilustraciones originales
+                        creadas en casa, haciendo cada bitácora una pieza única y personal.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section class="benefits-section" id="beneficios">
+        <h2>¿Por Qué Elegir Nuestra Bitácora?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon" style="background-image: url('imagenes/HechoaMano.png');">
+                </div>
+                <h3>Hecho a Mano</h3>
+                <p>Cada bitácora es elaborada a mano con dedicación, garantizando calidad excepcional en cada detalle.
+                </p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon" style="background-image: url('imagenes/LibredeAcido.png');">
+                </div>
+                <h3>Libre de Ácido</h3>
+                <p>Papel de alta calidad que resiste múltiples técnicas sin deteriorarse, manteniendo su belleza.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon" style="background-image: url('imagenes/DisenoOriginal2.jpg');">
+                </div>
+                <h3>Diseño Exclusivo</h3>
+                <p>Nuestras ilustraciones originales crean una bitácora única que refleja tu individualidad como
+                    artista.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon" style="background-image: url('imagenes/Tamano.jpg');">
+                </div>
+                <h3>Tamaño Perfecto</h3>
+                <p>Portátil y práctica, perfecta para llevar tus proyectos a cualquier lugar y crear sobre la marcha.
+                </p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon" style="background-image: url('imagenes/Multiples.png');">
+                </div>
+                <h3>Técnicas Ilimitadas</h3>
+                <p>Compatible con acuarela, tinta, grafito, lápices de color y más. Sin límites para tu creatividad.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon" style="background-image: url('imagenes/inspiracion.png');">
+                </div>
+                <h3>Inspiración</h3>
+                <p>Cada portada está elaborada partiendo de las técnicas análogas para inspirarte en cada página.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final" id="contacto">
+        <div class="cta-final-content">
+            <h2>Comienza tu Viaje Artístico Hoy</h2>
+            <p>
+                Únete a cientos de artistas que ya están creando sus mejores obras en nuestras bitácoras de técnicas
+                mixtas.
+                No hay límites, solo posibilidades infinitas.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://srbuho.com/?product=mix-herramientas-18x16" class="btn btn-primary"
+                    style="background-color: white; color: #4B9BA8;">Comprar Ahora</a>
+                <a href="https://www.instagram.com/sr.buho/" target="_blank" class="btn btn-secondary"
+                    style="border-color: white; color: #4B9BA8;">@srbuho</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <h3>Sr.Búho Diseño Independiente</h3>
+            <p>Bitácoras artesanales para artistas apasionados</p>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/sr.buho/" target="_blank">Instagram @srbuho</a>
+                <span>•</span>
+                <a href="https://srbuho.com/" target="_blank">www.srbuho.com</a>
+            </div>
+
+            <p style="margin-top: 2rem;">Hecho con amor para artistas como tú</p>
+            <p style="margin-top: 1rem; font-size: 0.75rem;">© 2026 srbuho.com Diseño Independiente. Todos los derechos
+                reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // MENÚ RESPONSIVO
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Efecto scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
